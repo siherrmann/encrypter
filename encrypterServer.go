@@ -49,12 +49,20 @@ func EncryptionMiddleware(next http.Handler) http.Handler {
 			return
 		}
 
+		payload, err := json.Marshal(encMsg)
+		if err != nil {
+			http.Error(w, "response encoding failed", http.StatusInternalServerError)
+			return
+		}
+
 		// Clear any headers that were set and write only encrypted response
 		for k := range w.Header() {
 			w.Header().Del(k)
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
-		json.NewEncoder(w).Encode(encMsg)
+		if _, err := w.Write(payload); err != nil {
+			return
+		}
 	})
 }

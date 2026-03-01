@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/labstack/echo/v5"
@@ -21,5 +22,7 @@ func Server(port string) {
 
 func DataHandler(rw http.ResponseWriter, r *http.Request) {
 	rw.WriteHeader(http.StatusOK)
-	rw.Write([]byte("Hallo Marius, das ist eine geheime Nachricht vom Server!"))
+	if _, err := rw.Write([]byte("Hallo Marius, das ist eine geheime Nachricht vom Server!")); err != nil {
+		log.Printf("failed to write response: %v", err)
+	}
 }
