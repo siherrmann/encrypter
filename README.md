@@ -1,6 +1,7 @@
 # encrypter
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/siherrmann/encrypter.svg)](https://pkg.go.dev/github.com/siherrmann/encrypter)
+[![Go Coverage](https://github.com/siherrmann/encrypter/wiki/coverage.svg)](https://raw.githack.com/wiki/siherrmann/encrypter/coverage.html)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/siherrmann/encrypter/blob/main/LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/siherrmann/encrypter)](http://goreportcard.com/report/siherrmann/encrypter)
 
